@@ -1,2 +1,0 @@
-# lcjs
-Created with CodeSandbox
