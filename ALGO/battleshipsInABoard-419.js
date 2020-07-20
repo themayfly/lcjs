@@ -1,36 +1,39 @@
 /**
- * @param {character[][]} grid
+ * @param {character[][]} board
  * @return {number}
  */
-var numIslands = function(grid) {
-  if (!grid || grid.length === 0) {
+var countBattleships = function(board) {
+  if (!board || board.length === 0) {
     return 0;
   }
-  const rowLen = grid.length;
-  const colLen = grid[0].length;
-  let battleshipCount = 0;
-
+  const rowLen = board.length;
+  const colLen = board[0].length;
+  let count = 0;
   function traverse(row, col) {
-    if (row >= rowLen || row < 0 || col >= colLen || col < 0) { // out of boundary
-      return;
+    // out of boundary
+    if (row < 0 || row >= rowLen || col < 0 || col >= colLen) {
+      return 0;
     }
-    if (grid[row][col] === '0') { // already visited or water
-      return;
+    // water or already sank
+    if (board[row][col] === '.') {
+      return 0;
     }
-    grid[row][col] = '0';
-    traverse(row+1, col); //bottom
+    // mark it as sank
+    board[row][col] = '.';
+    // traverse neighbors
     traverse(row-1, col); // top
+    traverse(row+1, col); // bottom
     traverse(row, col+1); // right
     traverse(row, col-1); // left
+    return 1;
   }
 
   for (let r = 0; r < rowLen; r++) {
     for (let c = 0; c < colLen; c++) {
-      if (grid[r][c] === '1') {
-        battleshipCount++;
-        traverse(r, c);
+      if (board[r][c] === 'X') {
+        count += traverse(r, c);
       }
     }
   }
-  return battleshipCount;
+  return count;
 };
