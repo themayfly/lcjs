@@ -8,7 +8,7 @@ var numIslands = function(grid) {
   }
   const rowLen = grid.length;
   const colLen = grid[0].length;
-  let islandCount = 0;
+  let battleshipCount = 0;
 
   function traverse(row, col) {
     if (row >= rowLen || row < 0 || col >= colLen || col < 0) { // out of boundary
@@ -27,10 +27,10 @@ var numIslands = function(grid) {
   for (let r = 0; r < rowLen; r++) {
     for (let c = 0; c < colLen; c++) {
       if (grid[r][c] === '1') {
-        islandCount++;
+        battleshipCount++;
         traverse(r, c);
       }
     }
   }
-  return islandCount;
+  return battleshipCount;
 };
