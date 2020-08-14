@@ -1,7 +1,7 @@
 /**
  * Initialize your data structure here.
  */
-var WordDictionary = function() {
+var WordDictionary = function () {
   this.list = []
 };
 
@@ -10,9 +10,9 @@ var WordDictionary = function() {
 * @param {string} word
 * @return {void}
 */
-WordDictionary.prototype.addWord = function(word) {
+WordDictionary.prototype.addWord = function (word) {
   if (this.list.indexOf(word) === -1) {
-      this.list.push(word)
+    this.list.push(word)
   }
 };
 
@@ -23,21 +23,21 @@ WordDictionary.prototype.addWord = function(word) {
 * @param {string} word
 * @return {boolean}
 */
-WordDictionary.prototype.search = function(word) {
-if (this.list.indexOf(word) > -1) {
+WordDictionary.prototype.search = function (word) {
+  if (this.list.indexOf(word) > -1) {
     return true;
-}
-return this.list.some(el => allLetterMatched(el, word));
+  }
+  return this.list.some(el => allLetterMatched(el, word));
 };
 
-var allLetterMatched = function(a, b) {
-let letterMatched = true;
-for (let i = 0; i < Math.min(a.length, b.length); i++) {
+var allLetterMatched = function (a, b) {
+  let letterMatched = true;
+  for (let i = 0; i < Math.min(a.length, b.length); i++) {
     if (a[i] !== b[i] && b[i] !== '.') {
-        letterMatched = false;
+      letterMatched = false;
     }
-}
-return letterMatched;
+  }
+  return letterMatched;
 }
 /**
 * Your WordDictionary object will be instantiated and called as such:
