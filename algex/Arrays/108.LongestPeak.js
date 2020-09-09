@@ -1,39 +1,29 @@
 function longestPeak(array) {
-	let max = 0;
-  for (let i = 0; i < array.length; i++) {
-    let peak = getPeak(array, i);
-    console.log(peak);
-		if (peak.length > max) {
-			max = peak.length;
+	let longestPeakLength = 0,
+			i = 1;
+	while (i < array.length - 1) {
+		let isPeak = array[i-1] < array[i] && array[i+1] < array[i];
+		if (!isPeak) {
+			i++;
+			continue;
 		}
-		
+
+		let leftIdx = i-2;
+		while (leftIdx >= 0 && array[leftIdx] < array[leftIdx+1]) {
+			leftIdx--;
+		}
+		let rightIdx = i+2;
+		while (rightIdx < array.length && array[rightIdx] < array[rightIdx-1]) {
+			rightIdx++;
+		}
+
+		let currentPeakLength = rightIdx - leftIdx - 1;
+		longestPeakLength = Math.max(longestPeakLength, currentPeakLength);
+		i = rightIdx;
 	}
-	return max;
+	return longestPeakLength;
 }
 
-function getPeak(array, i) {
-  let left = Math.max(0, i-1), 
-      right = Math.min(array.length, i+1);
-  if (array[left] >= array[i] || array[i] >= array[right]) {
-    return [];
-  }
-  console.log('#### while')
-	while (left > 0 && right < array.length-1) {
-		vL = array[left];
-		peak = array[i];
-    vR = array[right];
-    if (vL >= peak) {
-      return array.slice(left-1, right-left-1)
-    }
-    if (peak >= vR) {
-      return array.slice(left, right-left-1)
-    }
-    left--, right++;
-  }
-  return array.slice(left, (right-left));
-}
-
-// Do not edit the line below.
 exports.longestPeak = longestPeak;
 
 obj = {"array": [1, 2, 3, 3, 4, 0, 10, 6, 5, -1, -3, 2, 3]}

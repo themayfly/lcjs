@@ -32,7 +32,7 @@ var subarraySumBF = function(nums, k) {
   return count;
  };
   
- https://leetcode.com/problems/subarray-sum-equals-k/discuss/102106/Java-Solution-PreSum-%2B-HashMap
+ //https://leetcode.com/problems/subarray-sum-equals-k/discuss/102106/Java-Solution-PreSum-%2B-HashMap
  /*
  1. Hashmap<sum[0,i - 1], frequency>
  2. sum[i, j] = sum[0, j] - sum[0, i - 1]    --> sum[0, i - 1] = sum[0, j] - sum[i, j]

@@ -30,7 +30,6 @@ var accountsMerge = function(accounts) {
 
   let result = [];
   while (targetArr.length) {
-    
 
   }
   

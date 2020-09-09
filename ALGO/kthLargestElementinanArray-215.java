@@ -6,7 +6,7 @@ class Solution {
     int[] arr = {3,2,1,5,6,4};
     Solution sol = new Solution();
     sol.findKthLargest(arr, 0);
-  }
+  } 
   public int findKthLargest(int[] nums, int k) {
       PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
       for(int i : nums){
