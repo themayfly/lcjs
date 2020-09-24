@@ -1,1 +1,1 @@
-require('./ALGO/addBinary-67')
+require('./ALGO/addBinary-67');
