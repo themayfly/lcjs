@@ -1,3 +1,7 @@
+// map = {0: 1}
+// 3 4 target = 7
+// since 7 - (3+4) = 0 and we are looking for if there's a case where Sumi is 0, and there should always be a case for that.
+
 var subarraySum = function(nums, k) {
   let count = 0;
   let sum = 0;
@@ -9,7 +13,7 @@ var subarraySum = function(nums, k) {
     // k = sum - "some value in map"
     let diff = sum - k;
     if (map[diff]) {
-      count += map[diff];      
+      count += map[diff];
     }
     if (sum in map == false) {
       map[sum] = 0;
@@ -31,7 +35,7 @@ var subarraySumBF = function(nums, k) {
   }
   return count;
  };
-  
+
  //https://leetcode.com/problems/subarray-sum-equals-k/discuss/102106/Java-Solution-PreSum-%2B-HashMap
  /*
  1. Hashmap<sum[0,i - 1], frequency>

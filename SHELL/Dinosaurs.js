@@ -27,6 +27,7 @@ dataset2.forEach((line, i) => {
     map[fields[0]].stride_length = fields[1];
     map[fields[0]].stance = fields[2];
     map[fields[0]].allSet = true;
+    map[fields[0]].name = fields[0];
   }
 });
 var list = Object.values(map);
@@ -35,8 +36,8 @@ list.forEach(v => {
     v.speed = ((v.stride_length*1 / v.leg_length*1) - 1) * Math.sqrt(v.leg_length*1 * g);
   }
 });
-list = list.filter(v => v.allSet);
+list = list.filter(v => v.allSet && v.stance === 'bipedal');
 list.sort((a, b) => {
   return a.speed = b.speed;
 })
-console.log(list)
+console.log(list.map(v => v.name))
