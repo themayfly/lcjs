@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script>
+      var debounce = function(fn, delay, immediate) {
+        let handle = null;
+        return function() {
+          let target = this;
+          let args = arguments;
+          if (!handle && immediate === true) {
+            fn.apply(target, arguments);
+          }
+          if (handle) {
+            clearTimeout(handle);
+          }
+          handle = setTimeout(function() {
+            fn.apply(target, arguments);
+          }, delay);
+        }
+      }
+      window.addEventListener('resize', debounce(function() {
+        console.log('#### resize debounced ')
+      }, 2000, true));
+
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

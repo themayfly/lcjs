@@ -1,0 +1,38 @@
+html, body, div, p {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* flex-wrap: wrap; */
+  /* align-content: flex-start; */
+  height: 100vh;
+  background-color: lightgray;
+}
+
+.item {
+  background-color: rgba(121, 26, 26, 0.5);
+  font-size: 1rem;
+}
+
+.item:nth-child(odd) {
+  background-color: rgba(209, 209, 64, 0.5)
+}
+
+.item:nth-child(1) {
+  /* flex: 1; */
+  height: 80px;
+}
+.item:nth-child(2) {
+  flex: 1;
+}
+.item:nth-child(3) {
+  /* flex: 1; */
+  height: 50px;
+}

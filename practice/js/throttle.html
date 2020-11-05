@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <script>
+      var throttle = function(fn, threshold) {
+        var lastExecuted = 0;
+        return function() {
+          let now = new Date();
+          // console.log('#### now = %s, lastExecuted = %s', now, lastExecuted, (now - lastExecuted))
+          if ((now - lastExecuted) > threshold) {
+            lastExecuted = now;
+            fn();
+          }
+        }
+      }
+      window.addEventListener('resize', throttle(function() {
+        console.log('#### resize throttled ')
+      }, 1000));
+
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

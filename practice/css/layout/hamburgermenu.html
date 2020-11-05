@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html, body, .contents {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      background-color: #e3e3e3;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header, nav, main, footer {
+      padding: 0.5rem;
+    }
+    header {
+      background-color: #000;
+      color: #FFF;
+      height: 1rem;
+    }
+    main {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      overflow-y: scroll;
+    }
+    nav {
+      border: 1px solid #636363;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    nav .menu {
+
+    }
+    .menu li {
+      margin-left: -2rem;
+      list-style-type: none;
+    }
+    .contents {
+      flex: 1;
+      margin-left: 0.5rem;
+    }
+    footer {
+      background-color: #000;
+      color: #FFF;
+      height: 1rem;
+    }
+    .content {
+      border: 1px solid #a2a2a2;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+    }
+    .content:first-child {
+      margin: 0;
+    }
+
+    .menu-controller {
+      position: relative;
+      left: 1rem;
+      top: 2.9rem;
+    }
+    .hamburger-open, .hamburger-close {
+      margin: 0;
+    }
+    .hamburger-open img, .hamburger-close img {
+      width: 20px;
+    }
+    #main-menu:target {
+      /* display: none; */
+      min-width: 0;
+    }
+    #main-close:target {
+
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      Welcome!
+    </header>
+    <main>
+      <div class="menu-controller">
+        <a href="#main-menu">
+          <figure class="hamburger-open">
+            <img src="hamburgermenu-open.png"/>
+          </figure>
+        </a>
+        <a href="#main-close">
+          <figure class="hamburger-close">
+            <img src="hamburgermenu-close.png"/>
+          </figure>
+        </a>
+      </div>
+      <nav>
+        <ul class="menu" id="main-menu">
+          <li>Menu 1</li>
+          <li>Menu 1</li>
+          <li>Menu 1</li>
+          <li>Menu 1</li>
+        </ul>
+      </nav>
+      <section class="contents">
+        <article>
+          <section class="content">
+            <h1>
+              Article title goes here!
+            </h1>
+            <figure>
+              Image goes here
+            </figure>
+            <p>
+              Text goes here
+            </p>
+          </section>
+          <section class="content">
+            <h1>
+              Article title goes here!
+            </h1>
+            <p>
+              Text goes here
+            </p>
+          </section>
+          <section class="content">
+              <h1>
+                Article title goes here!
+              </h1>
+              <p>
+                Text goes here
+              </p>
+          </section>
+          <section class="content">
+            <h1>
+              Article title goes here!
+            </h1>
+            <p>
+              Text goes here
+            </p>
+          </section>
+        </article>
+      </section>
+
+    </main>
+    <footer>
+      Address goes here!
+    </footer>
+  </div>
+</body>
+</html>

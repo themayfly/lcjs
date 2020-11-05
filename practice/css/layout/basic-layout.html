@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html, body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      background-color: #e3e3e3;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header, nav, main, footer {
+      padding: 0.5rem;
+    }
+    header {
+      background-color: #000;
+      color: #FFF;
+      height: 1rem;
+    }
+    nav {
+      height: 1rem;
+      background-color: #535353;
+      color: #FFF;
+    }
+    main {
+      flex: 1;
+      overflow-y: scroll;
+    }
+    footer {
+      background-color: #000;
+      color: #FFF;
+      height: 1rem;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      Welcome!
+    </header>
+    <nav>
+      Menu goes here!
+    </nav>
+    <main>
+      <article>
+        <section>
+          <h1>
+            Article title goes here!
+          </h1>
+          <figure>
+            Image goes here
+          </figure>
+          <p>
+            Text goes here
+          </p>
+          </section>
+        <section>
+          <h1>
+            Article title goes here!
+          </h1>
+          <p>
+            Text goes here
+          </p>
+        </section>
+      </article>
+    </main>
+    <footer>
+      Address goes here!
+    </footer>
+  </div>
+</body>
+</html>
