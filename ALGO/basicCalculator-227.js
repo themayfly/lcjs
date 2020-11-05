@@ -3,32 +3,29 @@
  * @return {number}
  */
 var calculate = function(s) {
-  // process * and /
-  s = s.replace(/\s/ig, '');
-  let idx = 0;
-  while (idx < s.length-1) {
-    if (s[idx] === '*') {
-      s = s.replace(`${s[idx-1]}*${s[idx+1]}`, s[idx-1]*s[idx+1]);
-    } else if (s[idx] === '/') {
-      s = s.replace(`${s[idx-1]}/${s[idx+1]}`, Math.floor(s[idx-1]/s[idx+1]));
+  s = s.replace(/\s/g, '');
+  let num = '',
+      list = [],
+      prevSign = '+';// no effect dummy sign
+  // insert into array
+  for (let i=0; i<s.length; i++) {
+    if (!isNaN(s[i])) {
+      num += s[i];
     }
-    idx++;
-  }
-
-  idx = 0;
-  while (idx < s.length-1) {
-    if (s[idx] === '+') {
-      s = s.replace(`${s[idx-1]}+${s[idx+1]}`, s[idx-1]*1+s[idx+1]*1);
-    } else if (s[idx] === '-') {
-      s = s.replace(`${s[idx-1]}-${s[idx+1]}`, s[idx-1]*1-s[idx+1]*1);
+    if (isNaN(s[i]) || i === s.length-1) {
+      if (prevSign === '+') {
+        list.push(Number(num));
+      } else if (prevSign === '-') {
+        list.push(Number(-num));
+      } else if (prevSign === '*') {
+        list.push(list.pop()*num);
+      } else if (prevSign === '/') {
+        list.push(Math.trunc(list.pop()/num));
+      }
+      num = ''; // reset after push
+      prevSign = s[i];
     }
-    console.log('#### s = ', s);
-    idx++;
   }
-
-  return s;
+  return list.reduce((acc, cur) => acc + cur, 0);
 };
-
-s = '2+3*7/2+5-1'
-
-console.log(calculate(s));
+console.log(calculate('11*-6'));

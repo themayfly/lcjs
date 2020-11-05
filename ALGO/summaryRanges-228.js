@@ -15,22 +15,25 @@ var summaryRanges = function (nums) {
   return res;
 };
 
+/**
+ * @param {number[]} nums
+ * @return {string[]}
+ */
 var summaryRanges = function(nums) {
-  let res = [];
-  let prev;
-  // separate if it jumps 2 or more steps than previous
+  let prev,
+      list = [];
   for (let i=0; i<nums.length; i++) {
-    if (i === 0 || (nums[i] - prev) > 1) {
-      res.push([]);
+    if (i===0 || nums[i] - prev > 1) {
+      list.push([]);
     }
-    res[res.length-1].push(nums[i]);
+    list[list.length-1].push(nums[i]);
     prev = nums[i];
   }
-  return res.map(v => {
-    if (v.length === 1) {
-      return v+'';
+  return list.map(el => {
+    if (el.length === 1) {
+      return el+'';
     } else {
-      return `${v[0]}->${v[v.length-1]}`
+      return el[0]+'->'+el[el.length-1];
     }
-  })
+  });
 };

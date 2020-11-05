@@ -7,5 +7,3 @@ function convert(num) {
   }
   return result;
 }
-
-

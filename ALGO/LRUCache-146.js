@@ -2,11 +2,11 @@
  * @param {number} capacity
  */
 var LRUCache = function(capacity) {
-  this.map = new Map();
+  this.map = new Map(); // keep order of insert 
   this.capacity = capacity;
 };
 
-/** 
+/**
  * @param {number} key
  * @return {number}
  */
@@ -20,8 +20,8 @@ LRUCache.prototype.get = function(key) {
   return value;
 };
 
-/** 
- * @param {number} key 
+/**
+ * @param {number} key
  * @param {number} value
  * @return {void}
  */
@@ -34,7 +34,7 @@ LRUCache.prototype.put = function(key, value) {
   }
 };
 
-/** 
+/**
  * Your LRUCache object will be instantiated and called as such:
  * var obj = new LRUCache(capacity)
  * var param_1 = obj.get(key)

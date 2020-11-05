@@ -12,21 +12,51 @@
  * @param {TreeNode} root
  * @return {string}
  */
-
-function serialize(root) {
-  let data = [];
-  function preOrder(node) {
-    if (node == null) {
-      data.push(null);
+var serialize = function(root) {
+  if (!root) {
+    return root;
+  }
+  let result = [];
+  function preorder(node) {
+    if (!node) {
+      result.push(null);
       return;
     }
-    data.push(node.val);
-    preOrder(node.left);
-    preOrder(node.right);
+    result.push(node.val);
+    preorder(node.left);
+    preorder(node.right);
   }
-  preOrder(root);
-  return data;
-}
+  preorder(root);
+  return result;
+};
+
+/**
+ * Decodes your encoded data to tree.
+ *
+ * @param {string} data
+ * @return {TreeNode}
+ */
+var deserialize = function(data) {
+  if (!data || data.length === 0) {
+    return data;
+  }
+  function build() {
+    let cur = data.shift();
+    if (cur === null) {
+      return null;
+    }
+    let node = new TreeNode(cur);
+    node.left = build();
+    node.right = build();
+    return node;
+  }
+  return build();
+};
+
+/**
+ * Your functions will be called as such:
+ * deserialize(serialize(root));
+ */
 
 function deserialize(data) {
   function go() {
