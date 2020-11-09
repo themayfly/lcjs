@@ -10,15 +10,13 @@
  * @param {TreeNode} root
  * @return {number}
  */
- var diameterOfBinaryTree = function(root) {
+ var diameter = function(root) {
    let result = 0;
    function traverse(node) {
      if (!node) return 0;
-     let left = traverse(node.left);
-     let right = traverse(node.right);
-     result = Math.max(result, left + right);
-     return Math.max(left, right) + 1;
+     let max = 0;
+     for (let cur of node.children) {
+
+     }
    }
-   traverse(root);
-   return result;
  };
